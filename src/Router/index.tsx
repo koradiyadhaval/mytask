@@ -6,7 +6,8 @@ import json from "../Util/Language/Eng/index.json";
 import * as React from "react";
 import { Login } from "../Screens/Login";
 import { Home } from "../Screens/Home";
-import { Screen_Home, Screen_Login } from "./RouterConstant";
+import { Screen_Home, Screen_Login, Screen_MapScreen } from "./RouterConstant";
+import { Map } from "../Screens/Map";
 
 /**
  *
@@ -42,6 +43,15 @@ export const AppHomestack = () => {
           }}
           name={Screen_Home}
           component={Home}
+        />
+
+        <Stack.Screen
+          options={{
+            fullScreenGestureEnabled: true,
+            headerShown: true,
+          }}
+          name={Screen_MapScreen}
+          component={Map}
         />
       </Stack.Navigator>
     </NavigationContainer>

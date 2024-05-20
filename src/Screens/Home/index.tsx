@@ -1,23 +1,54 @@
 import React, { useCallback, useEffect } from "react";
 // import {View} from 'react-native';
 import { AppView } from "../../Components/App/AppView";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {} from "../../store/slice/Application";
-import { InterfaceHome } from "../../Interface/Response/Home/InterfaceHome";
-import { FlatList } from "react-native";
-import { HomeCellView } from "../../Components/Custom/CellView/HomeCellview";
+
 import { GetStyles } from "./style";
-import { FlatlistLoadmoreview } from "../../Components/Custom/FlatlistLoadmoreview";
+
 import { AppSafeAreaView } from "../../Components/App/AppSafeAreaView";
-import { AppScrollView } from "../../Components/App/AppScrollView";
+import json from "../../Util/Language/Eng/index.json";
+import { AppTochableOpacity } from "../../Components/App/AppTochableOpacity";
+import { TextView } from "../../Components/App/TextView";
+import { useNavigation } from "@react-navigation/native";
+import { Screen_MapScreen } from "../../Router/RouterConstant";
+import { CommonActions } from "@react-navigation/native";
 
 export const Home = () => {
+  const navigation = useNavigation();
   const Styles = GetStyles();
 
   return (
     <AppSafeAreaView style={Styles.MainSafeAreaview}>
       <AppView style={Styles.MainView}>
-        <AppScrollView style={Styles.AppScrollView}></AppScrollView>
+        <AppTochableOpacity
+          onPress={() => {
+            //
+            // navigation.navigate(Screen_MapScreen);
+            navigation.dispatch(
+              CommonActions.navigate({
+                name: Screen_MapScreen,
+              })
+            );
+          }}
+          style={Styles.appTouchableView}
+        >
+          <TextView style={Styles.textButton}>{json.label_load_map}</TextView>
+        </AppTochableOpacity>
+
+        <AppTochableOpacity
+          onPress={() => {
+            //
+            // navigation.navigate(Screen_MapScreen);
+            navigation.dispatch(
+              CommonActions.navigate({
+                name: Screen_MapScreen,
+              })
+            );
+          }}
+          style={Styles.appTouchableView}
+        >
+          <TextView style={Styles.textButton}>{json.label_load_Movie}</TextView>
+        </AppTochableOpacity>
       </AppView>
     </AppSafeAreaView>
   );

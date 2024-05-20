@@ -4,7 +4,7 @@ import { AppView } from "../../Components/App/AppView";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {} from "../../store/slice/Application";
 import { InterfaceHome } from "../../Interface/Response/Home/InterfaceHome";
-import { FlatList } from "react-native";
+import { FlatList, Keyboard } from "react-native";
 import { HomeCellView } from "../../Components/Custom/CellView/HomeCellview";
 import { GetStyles } from "./style";
 import { FlatlistLoadmoreview } from "../../Components/Custom/FlatlistLoadmoreview";
@@ -33,6 +33,7 @@ export const Login = () => {
 
   const RefEmail = useRef();
   const RefPassword = useRef();
+  const formikrefs = useRef("forma");
 
   return (
     <AppSafeAreaView style={Styles.MainSafeAreaview}>
@@ -66,13 +67,12 @@ export const Login = () => {
                       placeholder="Email"
                       style={Styles.LoginTextInputStyle}
                       onChangeText={handleChange("email")}
-                      onSubmitEditing={() => {
-                        // RefPassword?.current?.focus();
-                        console.log(" length ", RefPassword);
-                      }}
                       onBlur={handleBlur("email")}
                       value={values.email}
                       keyboardType="email-address"
+                      onSubmitEditing={() => {
+                        RefPassword?.current?.focus();
+                      }}
                     />
                     {errors.email && (
                       <TextView style={Styles.ErrorView}>
@@ -86,8 +86,11 @@ export const Login = () => {
                       onChangeText={handleChange("password")}
                       onBlur={handleBlur("password")}
                       value={values.password}
-                      secureTextEntry
+                      secureTextEntry={true}
                       ref={RefPassword}
+                      onSubmitEditing={() => {
+                        Keyboard.dismiss();
+                      }}
                     />
                     {errors.password && (
                       <TextView style={Styles.ErrorView}>

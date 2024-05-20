@@ -1,4 +1,4 @@
-import React from "react";
+import React, { LegacyRef } from "react";
 import {
   ColorValue,
   TextInputScrollEventData,
@@ -19,7 +19,7 @@ interface CompProps {
   children?: React.JSX.Element | string;
   contentInsetAdjustmentBehavior?: string;
   style?: any;
-  ref?: any;
+  // ref?: any;
   key?: string;
   accessibilityActions?: ReadonlyArray<AccessibilityActionInfo>;
   disabled?: boolean;
@@ -120,8 +120,8 @@ interface CompProps {
   multiline?: boolean | undefined;
   editable?: boolean | undefined;
 }
-
-export const EditText = (props: CompProps) => {
+// forwardRef((props: CompProps, ref: any)
+export const EditText = React.forwardRef((props: CompProps, ref: any) => {
   return (
     <TextInput
       onBlur={props?.onBlur}
@@ -150,7 +150,7 @@ export const EditText = (props: CompProps) => {
       disableFullscreenUI={props?.disableFullscreenUI}
       accessibilityActions={props?.accessibilityActions}
       key={props?.key}
-      ref={props?.ref}
+      ref={ref}
       onPressOut={props?.onPressOut}
       onLayout={props?.onLayout}
       defaultValue={props?.defaultValue}
@@ -176,7 +176,7 @@ export const EditText = (props: CompProps) => {
       {props?.children}
     </TextInput>
   );
-};
+});
 
 // EditText.defaultProps = {
 //   children: "",

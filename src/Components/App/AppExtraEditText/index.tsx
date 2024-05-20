@@ -140,6 +140,10 @@ interface CompProps {
   onChange?:
     | ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void)
     | undefined;
+  onBlur?:
+    | ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void)
+    | undefined;
+  // onBlur
   multiline?: boolean | undefined;
   editable?: boolean | undefined;
 }
@@ -156,6 +160,7 @@ export const AppExtraEditText = forwardRef((props: CompProps, ref: any) => {
         ></Image>
       )}
       <TextInput
+        onBlur={props?.onBlur}
         editable={props?.editable}
         multiline={props?.multiline}
         onChange={props?.onChange}

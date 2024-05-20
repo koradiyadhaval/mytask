@@ -60,18 +60,18 @@ export const TextView = (props: CompProps) => {
   );
 };
 
-TextView.defaultProps = {
-  disabled: true,
-  children: "",
-  style: {},
-  adjustsFontSizeToFit: undefined,
-  ellipsizeMode: "head",
-  onLayout: () => {},
-  onLongPress: () => {},
-  onPressIn: () => {},
-  lineBreakMode: undefined,
-  id: undefined,
-  allowFontScaling: true,
-  numberOfLines: undefined,
-  selectionColor: "#000000",
-};
+// TextView.defaultProps = {
+//   disabled: true,
+//   children: "",
+//   style: {},
+//   adjustsFontSizeToFit: undefined,
+//   ellipsizeMode: "head",
+//   onLayout: () => {},
+//   onLongPress: () => {},
+//   onPressIn: () => {},
+//   lineBreakMode: undefined,
+//   id: undefined,
+//   allowFontScaling: true,
+//   numberOfLines: undefined,
+//   selectionColor: "#000000",
+// };

@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView, AccessibilityActionInfo } from "react-native";
 
 interface CompProps {
-  children: React.JSX.Element;
+  children?: React.JSX.Element;
   contentInsetAdjustmentBehavior?: string;
   style?: any;
   ref?: any;

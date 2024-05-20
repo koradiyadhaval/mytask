@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import React from "react";
+import { View, StyleSheet } from "react-native";
 
 interface CompProps {
   // children: any
@@ -13,29 +13,28 @@ interface CompProps {
 export const AppCardView = (props: CompProps) => {
   return (
     <View
-      key={props?.key}
+      // key={props?.key}
       ref={props?.ref}
       style={
         props?.style ? [styles.CardTemplate, props.style] : styles.CardTemplate
-      }>
+      }
+    >
       {props.children}
     </View>
   );
 };
 
-
-
 const styles = StyleSheet.create({
   CardTemplate: {
     padding: 1,
 
-    borderColor: '#C8C8C8',
+    borderColor: "#C8C8C8",
     borderWidth: 1,
 
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
 
-    shadowColor: 'black',
+    shadowColor: "black",
     shadowOffset: {
       width: 0,
       height: 4,
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     elevation: 6,
 
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

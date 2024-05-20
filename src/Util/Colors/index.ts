@@ -10,3 +10,4 @@ export const color_gray = '#999999';
 export const color_silver = '#C0C0C0';
 export const light_rose_green = '#DBF9DB';
 export const color_light_gray="#D3D3D3";
+export const color_code_blue_bright="#0096FF";

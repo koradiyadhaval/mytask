@@ -1,8 +1,10 @@
 {
-    "title":"My Task",
-    "ID":"Id : ",
-    "UserId":"User Id : ",
-    "Title":"Title : ",
-    "Body":"Body : "
+    "label_login_title":"Login",
+    "label_validation_email_require":"Email Address is Required",
+    "label_validation_email_valid":"Please enter valid email",
+    "label_validation_password_require":"Password is required",
+    "label_validation_password_field_min_length_message":"Password must be at least 8 characters"
+
+
 
 }

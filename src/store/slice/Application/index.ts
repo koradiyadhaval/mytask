@@ -7,7 +7,7 @@ import {InterfaceHome} from '../../../Interface/Response/Home/InterfaceHome';
 // Define the initial state using that type
 const initialState: HomescreenState = {
   UserLogin:false,
-  UserName:'',
+  UserEmail:'',
   Loader:false
 };
 export const HomeScreenSlice = createSlice({
@@ -18,14 +18,14 @@ export const HomeScreenSlice = createSlice({
       Object.assign({state, Loader: action.payload});
       state.UserLogin = action.payload;
     },
-    serUserName: (state, action: PayloadAction<string>) => {
+    serUserEmail: (state, action: PayloadAction<string>) => {
       Object.assign({state, Loader: action.payload});
-      state.UserName = action.payload;
+      state.UserEmail = action.payload;
     },
   },
 });
 
 export const {
-  serUserName,serUserLogin
+  serUserEmail,serUserLogin
 } = HomeScreenSlice.actions;
 export default HomeScreenSlice.reducer;

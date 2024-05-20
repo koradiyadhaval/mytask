@@ -5,7 +5,8 @@ import json from "../Util/Language/Eng/index.json";
 
 import * as React from "react";
 import { Login } from "../Screens/Login";
-import { Screen_Login } from "./RouterConstant";
+import { Home } from "../Screens/Home";
+import { Screen_Home, Screen_Login } from "./RouterConstant";
 
 /**
  *
@@ -18,12 +19,29 @@ export const AppRouter = () => {
       <Stack.Navigator initialRouteName={Screen_Login}>
         <Stack.Screen
           options={{
-            headerTitle: json.title,
             fullScreenGestureEnabled: true,
             headerShown: false,
           }}
           name={Screen_Login}
           component={Login}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export const AppHomestack = () => {
+  const Stack = createNativeStackNavigator();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName={Screen_Home}>
+        <Stack.Screen
+          options={{
+            fullScreenGestureEnabled: true,
+            headerShown: true,
+          }}
+          name={Screen_Home}
+          component={Home}
         />
       </Stack.Navigator>
     </NavigationContainer>

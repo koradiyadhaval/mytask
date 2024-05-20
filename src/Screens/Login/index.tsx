@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useRef } from "react";
 // import {View} from 'react-native';
 import { AppView } from "../../Components/App/AppView";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import {} from "../../store/slice/Application";
-import { InterfaceHome } from "../../Interface/Response/Home/InterfaceHome";
+import { serUserEmail, serUserLogin } from "../../store/slice/Application";
+import json from "../../Util/Language/Eng/index.json";
 import { FlatList, Keyboard } from "react-native";
 import { HomeCellView } from "../../Components/Custom/CellView/HomeCellview";
 import { GetStyles } from "./style";
@@ -16,6 +16,7 @@ import { EditText } from "../../Components/App/EditText";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { TextView } from "../../Components/App/TextView";
+import { AppTochableOpacity } from "../../Components/App/AppTochableOpacity";
 
 export const Login = () => {
   const Styles = GetStyles();
@@ -23,34 +24,40 @@ export const Login = () => {
   const loginValidationSchema = yup.object().shape({
     email: yup
       .string()
-      .email("Please enter valid email")
-      .required("Email Address is Required"),
+      .email(json.label_validation_email_valid)
+      .required(json.label_validation_email_require),
     password: yup
       .string()
-      .min(8, ({ min }) => `Password must be at least ${min} characters`)
-      .required("Password is required"),
+      .min(8, json.label_validation_password_field_min_length_message)
+      .required(json.label_validation_password_require),
   });
 
   const RefEmail = useRef();
   const RefPassword = useRef();
-  const formikrefs = useRef("forma");
+  const dispatch = useAppDispatch();
+
+  const OnSuccessLogin = ({ Email }: { Email: string }) => {
+    dispatch(serUserEmail(Email));
+    dispatch(serUserLogin(true));
+  };
 
   return (
     <AppSafeAreaView style={Styles.MainSafeAreaview}>
       <AppScrollView contentContainerStyle={Styles.AppScrollView}>
         <AppView style={Styles.MainView}>
+          <TextView style={Styles.screen_title}>
+            {json.label_login_title}
+          </TextView>
           <AppCardView style={Styles.AppCardViewstyle}>
             <AppView style={Styles.InnerAppView}>
-              {/* <EditText
-                placeholder="useless placeholder"
-                placeholderTextColor={"color_black"}
-                style={Styles.LoginTextInputStyle}
-              ></EditText> */}
-
               <Formik
                 validationSchema={loginValidationSchema}
                 initialValues={{ email: "", password: "" }}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values) => {
+                  console.log(values);
+
+                  OnSuccessLogin({ Email: values.email });
+                }}
               >
                 {({
                   handleChange,
@@ -97,6 +104,13 @@ export const Login = () => {
                         {errors.password}
                       </TextView>
                     )}
+
+                    <AppTochableOpacity
+                      onPress={() => handleSubmit()}
+                      style={Styles.appTouchableView}
+                    >
+                      <TextView style={Styles.textButton}>Login</TextView>
+                    </AppTochableOpacity>
                   </AppView>
                 )}
               </Formik>

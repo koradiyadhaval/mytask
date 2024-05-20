@@ -32,4 +32,4 @@ export const AppTochableOpacity = (props: CompProps) => {
   );
 };
 
-AppTochableOpacity.defaultProps = {};
+// AppTochableOpacity.defaultProps = {};

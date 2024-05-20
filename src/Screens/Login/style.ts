@@ -1,5 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { color_black, color_blue, color_blue_gray, color_gray, color_white } from "../../Util/Colors";
+import { color_black, color_blue, color_blue_gray, color_code_blue_bright, color_gray, color_white } from "../../Util/Colors";
+import { deviceBasedDynamicDimension } from "../../Util/ApplicationSpace";
 
 export const GetStyles = () => {
   return StyleSheet.create({
@@ -58,6 +59,34 @@ export const GetStyles = () => {
        fontWeight:"500",
       marginVertical:10,
       paddingLeft:5
+    },
+    screen_title:{
+      fontSize:16,
+      lineHeight:18,
+      width:'100%',
+      padding:0,
+      fontWeight:"800",
+      marginVertical:20,
+ 
+      verticalAlign:'middle',
+      textAlign:'center'
+    },
+    appTouchableView:{
+      width:"100%",
+      height:deviceBasedDynamicDimension({originalDimen:45}),
+      justifyContent:'center',
+      backgroundColor:color_code_blue_bright,
+      marginVertical:20,
+      
+      borderRadius:12,
+    },
+    textButton:{
+      color:color_white,
+      fontSize:18,
+      lineHeight:20,
+      width:'auto',
+      fontWeight:"700",
+      alignSelf:'center',
     }
   });
 };

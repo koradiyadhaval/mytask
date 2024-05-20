@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 // import {AppView} from '../App/AppView';
-import { AppRouter } from "../../Router";
+import { AppHomestack, AppRouter } from "../../Router";
 import { useAppSelector } from "../../store/hooks";
 import Loader from "../App/Loader";
+import { useNavigation } from "@react-navigation/native";
 
 export const ApplicationWrapper = () => {
   const VisibleLoader = useAppSelector((state) => state.Application.Loader);
+  const UserLogin = useAppSelector((state) => state.Application.UserLogin);
   useEffect(() => {
     //
     /**
@@ -16,7 +18,8 @@ export const ApplicationWrapper = () => {
 
   return (
     <>
-      <AppRouter />
+      {UserLogin === false && <AppRouter />}
+      {UserLogin === true && <AppHomestack />}
 
       {VisibleLoader && <Loader visible={VisibleLoader} />}
     </>

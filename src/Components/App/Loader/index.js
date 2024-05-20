@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import {View, ActivityIndicator, Modal} from 'react-native';
 import style from './style';
-// import { connect } from 'react-redux';
 const Loader = props => {
-  // const { setLoading: { isLoading } } = this.props
-  // const styles=style.
-  return (
+   return (
     <Modal
       statusBarTranslucent={true}
       transparent={true}
@@ -16,7 +13,7 @@ const Loader = props => {
           : false
       }
       supportedOrientations={['portrait', 'landscape']}
-      // onRequestClose={() => { console.log('close modal') }}
+     
     >
       <View style={style.modalBackground}>
         <View style={style.activityIndicatorWrapper}>

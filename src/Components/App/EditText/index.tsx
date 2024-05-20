@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   ColorValue,
   TextInputScrollEventData,
@@ -13,11 +13,10 @@ import {
   ReturnKeyTypeOptions,
   TextInputSelectionChangeEventData,
   TextInputChangeEventData,
-} from 'react-native';
-import {React$Node} from '../../TypesAndInterfaces/AppTypes';
+} from "react-native";
 
 interface CompProps {
-  children: React$Node | React$Node[] | string;
+  children: React.JSX.Element | string;
   contentInsetAdjustmentBehavior?: string;
   style?: any;
   ref?: any;
@@ -25,13 +24,13 @@ interface CompProps {
   accessibilityActions?: ReadonlyArray<AccessibilityActionInfo>;
   disabled?: boolean;
   // adjustsFontSizeToFit?: boolean | undefined;
-  ellipsizeMode?: 'head' | 'middle' | 'tail' | 'clip' | undefined;
+  ellipsizeMode?: "head" | "middle" | "tail" | "clip" | undefined;
   onPress?: () => void;
   onPressOut?: () => void;
   onLayout?: (event: LayoutChangeEvent) => void;
   onLongPress?: (event: GestureResponderEvent) => void;
   onPressIn?: (event: GestureResponderEvent) => void;
-  lineBreakMode?: 'head' | 'middle' | 'tail' | 'clip' | undefined;
+  lineBreakMode?: "head" | "middle" | "tail" | "clip" | undefined;
   id: string | undefined;
   allowFontScaling?: boolean;
   numberOfLines?: number | undefined;
@@ -44,60 +43,60 @@ interface CompProps {
   defaultValue?: string | undefined;
   autoFocus?: boolean | undefined;
   blurOnSubmit?: boolean | undefined;
-  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters' | undefined;
+  autoCapitalize?: "none" | "sentences" | "words" | "characters" | undefined;
   autoCorrect?: boolean | undefined;
   onKeyPress?:
     | ((e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void)
     | undefined;
   keyboardType?: KeyboardTypeOptions | undefined;
-  keyboardAppearance?: 'default' | 'light' | 'dark' | undefined;
+  keyboardAppearance?: "default" | "light" | "dark" | undefined;
   returnKeyLabel?: string | undefined;
   returnKeyType?: ReturnKeyTypeOptions | undefined;
   onChangeText?: ((text: string) => void) | undefined;
   maxLength?: number | undefined;
   clearButtonMode?:
-    | 'never'
-    | 'while-editing'
-    | 'unless-editing'
-    | 'always'
+    | "never"
+    | "while-editing"
+    | "unless-editing"
+    | "always"
     | undefined;
   collapsable?: boolean | undefined;
   cursorColor?: string | undefined;
   textContentType?:
-    | 'none'
-    | 'URL'
-    | 'addressCity'
-    | 'addressCityAndState'
-    | 'addressState'
-    | 'countryName'
-    | 'creditCardNumber'
-    | 'emailAddress'
-    | 'familyName'
-    | 'fullStreetAddress'
-    | 'givenName'
-    | 'jobTitle'
-    | 'location'
-    | 'middleName'
-    | 'name'
-    | 'namePrefix'
-    | 'nameSuffix'
-    | 'nickname'
-    | 'organizationName'
-    | 'postalCode'
-    | 'streetAddressLine1'
-    | 'streetAddressLine2'
-    | 'sublocality'
-    | 'telephoneNumber'
-    | 'username'
-    | 'password'
-    | 'newPassword'
-    | 'oneTimeCode'
+    | "none"
+    | "URL"
+    | "addressCity"
+    | "addressCityAndState"
+    | "addressState"
+    | "countryName"
+    | "creditCardNumber"
+    | "emailAddress"
+    | "familyName"
+    | "fullStreetAddress"
+    | "givenName"
+    | "jobTitle"
+    | "location"
+    | "middleName"
+    | "name"
+    | "namePrefix"
+    | "nameSuffix"
+    | "nickname"
+    | "organizationName"
+    | "postalCode"
+    | "streetAddressLine1"
+    | "streetAddressLine2"
+    | "sublocality"
+    | "telephoneNumber"
+    | "username"
+    | "password"
+    | "newPassword"
+    | "oneTimeCode"
     | undefined;
-  textAlign?: 'left' | 'center' | 'right' | undefined;
+  textAlign?: "left" | "center" | "right" | undefined;
   secureTextEntry?: boolean | undefined;
-  selection?: {start: number; end?: number | undefined} | undefined;
+  selection?: { start: number; end?: number | undefined } | undefined;
   clearTextOnFocus?: boolean | undefined;
-  textAlignVertical?: 'auto' | 'top' | 'bottom' | 'center' | undefined;
+  textAlignVertical?: "auto" | "top" | "bottom" | "center" | undefined;
   underlineColorAndroid?: ColorValue | undefined;
   accessibilityHint?: string | undefined;
   selectTextOnFocus?: boolean | undefined;
@@ -168,16 +167,17 @@ export const EditText = (props: CompProps) => {
       textAlignVertical={props?.textAlignVertical}
       clearTextOnFocus={props?.clearTextOnFocus}
       accessibilityHint={props?.accessibilityHint}
-      style={props?.style}>
+      style={props?.style}
+    >
       {props?.children}
     </TextInput>
   );
 };
 
 EditText.defaultProps = {
-  children: '',
+  children: "",
   style: {},
-  ellipsizeMode: 'head',
+  ellipsizeMode: "head",
   onLayout: () => {},
   onLongPress: () => {},
   onPressIn: () => {},
@@ -185,7 +185,7 @@ EditText.defaultProps = {
   id: undefined,
   allowFontScaling: true,
   numberOfLines: undefined,
-  selectionColor: '#000000',
-  cursorColor: '#000000',
+  selectionColor: "#000000",
+  cursorColor: "#000000",
   disableFullscreenUI: false,
 };

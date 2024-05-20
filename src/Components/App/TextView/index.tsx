@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import {
   Text,
   AccessibilityActionInfo,
-  LayoutChangeEvent,GestureResponderEvent
-} from 'react-native';
-import { React$Node } from '../../TypesAndInterfaces/AppTypes';
+  LayoutChangeEvent,
+  GestureResponderEvent,
+} from "react-native";
 
 interface CompProps {
-  children?: React$Node | React$Node[] | string
+  children?: React.JSX.Element | string;
   contentInsetAdjustmentBehavior?: string;
   style?: any;
   ref?: any;
@@ -15,20 +15,20 @@ interface CompProps {
   accessibilityActions?: ReadonlyArray<AccessibilityActionInfo>;
   disabled?: boolean;
   adjustsFontSizeToFit?: boolean | undefined;
-  ellipsizeMode?: 'head' | 'middle' | 'tail' | 'clip' | undefined;
+  ellipsizeMode?: "head" | "middle" | "tail" | "clip" | undefined;
   onPress?: () => void;
   onPressOut?: () => void;
-  onLayout?: (event: LayoutChangeEvent) => void
+  onLayout?: (event: LayoutChangeEvent) => void;
   onLongPress?: (event: GestureResponderEvent) => void;
   onPressIn?: (event: GestureResponderEvent) => void;
-  lineBreakMode?: 'head' | 'middle' | 'tail' | 'clip' | undefined;
+  lineBreakMode?: "head" | "middle" | "tail" | "clip" | undefined;
   id: string | undefined;
   allowFontScaling?: boolean;
   numberOfLines?: number | undefined;
   selectionColor?: string | undefined;
   accessibilityIgnoresInvertColors?: boolean | undefined;
   accessibilityViewIsModal?: boolean | undefined;
-  minimumFontScale?:number | undefined;
+  minimumFontScale?: number | undefined;
 }
 
 export const TextView = (props: CompProps) => {
@@ -53,7 +53,8 @@ export const TextView = (props: CompProps) => {
       accessibilityViewIsModal={props?.accessibilityViewIsModal}
       minimumFontScale={props?.minimumFontScale}
       onPressIn={props?.onPressIn}
-      style={[props?.style]}>
+      style={[props?.style]}
+    >
       {props?.children}
     </Text>
   );
@@ -61,16 +62,16 @@ export const TextView = (props: CompProps) => {
 
 TextView.defaultProps = {
   disabled: true,
-  children: '',
+  children: "",
   style: {},
   adjustsFontSizeToFit: undefined,
-  ellipsizeMode: 'head',
-  onLayout: () => { },
-  onLongPress:()=>{},
-  onPressIn:()=>{},
+  ellipsizeMode: "head",
+  onLayout: () => {},
+  onLongPress: () => {},
+  onPressIn: () => {},
   lineBreakMode: undefined,
   id: undefined,
   allowFontScaling: true,
   numberOfLines: undefined,
-  selectionColor: '#000000'
+  selectionColor: "#000000",
 };

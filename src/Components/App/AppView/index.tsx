@@ -1,11 +1,9 @@
-import React from 'react';
-import {View} from 'react-native';
-// import {ScrollView} from 'react-native';
-// import {React$Node} from '../../TypesAndInterfaces/AppTypes';
+import React from "react";
+import { View } from "react-native";
 
 interface CompProps {
   // children: any
-  children?: React.ReactNode | React.ReactNode[];
+  children?: React.JSX.Element;
   contentInsetAdjustmentBehavior?: string;
   style?: any;
   ref?: any;

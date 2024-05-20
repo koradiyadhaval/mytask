@@ -1,10 +1,9 @@
-import React from 'react';
-import { TouchableOpacity, GestureResponderEvent } from 'react-native';
-import { React$Node } from '../../TypesAndInterfaces/AppTypes';
+import React from "react";
+import { TouchableOpacity, GestureResponderEvent } from "react-native";
 
 interface CompProps {
   // children: any
-  children?: React$Node | React$Node[];
+  children?: React.JSX.Element;
   contentInsetAdjustmentBehavior?: string;
   style?: any;
   ref?: any;
@@ -18,7 +17,6 @@ interface CompProps {
 
 // export const Index :  FC<CompProps> = props =>{
 export const AppTochableOpacity = (props: CompProps) => {
-
   return (
     <TouchableOpacity
       key={props?.key}
@@ -27,15 +25,11 @@ export const AppTochableOpacity = (props: CompProps) => {
       disabled={props?.disabled}
       onPressOut={props?.onPressOut}
       onPressIn={props?.onPressIn}
-      onPress={props?.onPress}>
+      onPress={props?.onPress}
+    >
       {props?.children}
     </TouchableOpacity>
+  );
+};
 
-  )
-
-}
-
-AppTochableOpacity.defaultProps = {
-
-}
-
+AppTochableOpacity.defaultProps = {};

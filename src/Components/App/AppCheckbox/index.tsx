@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -8,15 +8,15 @@ import {
   AccessibilityActionInfo,
   LayoutChangeEvent,
   GestureResponderEvent,
-} from 'react-native';
-import {React$Node} from '../../TypesAndInterfaces/AppTypes';
-import {deviceBasedDynamicDimension} from '../../Util/ApplicationSpace';
-import {color_white, login_field_text_hint_color} from '../../Util/Colors';
+} from "react-native";
+// import {React$Node} from '../../TypesAndInterfaces/AppTypes';
+import { deviceBasedDynamicDimension } from "../../../Util/ApplicationSpace";
+import { color_white } from "../../../Util/Colors";
 import {
   image_data_selected,
   image_data_unselected,
-} from '../../Util/ImageAssets';
-import {font_HKGrotesk_Regular} from '../../Util/Fonts';
+} from "../../../Util/ImageAssets";
+// import { font_HKGrotesk_Regular } from "../../Util/Fonts";
 // import { isNull } from '../../Util';
 
 interface CompProps {
@@ -33,13 +33,13 @@ interface CompProps {
   accessibilityActions?: ReadonlyArray<AccessibilityActionInfo>;
   disabled?: boolean;
   adjustsFontSizeToFit?: boolean | undefined;
-  ellipsizeMode?: 'head' | 'middle' | 'tail' | 'clip' | undefined;
+  ellipsizeMode?: "head" | "middle" | "tail" | "clip" | undefined;
   onPress?: () => void;
   onPressOut?: () => void;
   onLayout?: (event: LayoutChangeEvent) => void;
   onLongPress?: (event: GestureResponderEvent) => void;
   onPressIn?: (event: GestureResponderEvent) => void;
-  lineBreakMode?: 'head' | 'middle' | 'tail' | 'clip' | undefined;
+  lineBreakMode?: "head" | "middle" | "tail" | "clip" | undefined;
   id?: string | undefined;
   allowFontScaling?: boolean;
   numberOfLines?: number | undefined;
@@ -48,7 +48,7 @@ interface CompProps {
   accessibilityViewIsModal?: boolean | undefined;
   minimumFontScale?: number | undefined;
   checked: boolean | undefined;
-  onChange?:(status:boolean)=>void;
+  onChange?: (status: boolean) => void;
 }
 
 export const AppCheckbox = (props: CompProps) => {
@@ -60,24 +60,27 @@ export const AppCheckbox = (props: CompProps) => {
         setstatus(!status);
       }}
       style={[
-        {flexDirection: 'row', width: 'auto'},
+        { flexDirection: "row", width: "auto" },
         props?.parentcontainerstyle,
-      ]}>
-      <View style={{flex: 1, flexDirection: 'row', width: 'auto'}}>
+      ]}
+    >
+      <View style={{ flex: 1, flexDirection: "row", width: "auto" }}>
         {status === false && (
           <Image
-          resizeMethod={'scale'}
-          resizeMode={'cover'}
+            resizeMethod={"scale"}
+            resizeMode={"cover"}
             style={[styles.unselectedImage, props?.unselectedstyle]}
-            source={image_data_unselected}></Image>
+            source={image_data_unselected}
+          ></Image>
         )}
 
         {status === true && (
           <Image
-            resizeMethod={'scale'}
-            resizeMode={'cover'}
+            resizeMethod={"scale"}
+            resizeMode={"cover"}
             style={[styles.selectedImage, props?.selecetdstyle]}
-            source={image_data_selected}></Image>
+            source={image_data_selected}
+          ></Image>
         )}
 
         <Text
@@ -95,11 +98,11 @@ export const AppCheckbox = (props: CompProps) => {
           accessibilityIgnoresInvertColors={
             props?.accessibilityIgnoresInvertColors
           }
-          
           accessibilityViewIsModal={props?.accessibilityViewIsModal}
           minimumFontScale={props?.minimumFontScale}
           onPressIn={props?.onPressIn}
-          style={[styles.fontstyle, props?.textstyle]}>
+          style={[styles.fontstyle, props?.textstyle]}
+        >
           {props.label}
         </Text>
       </View>
@@ -110,10 +113,10 @@ export const AppCheckbox = (props: CompProps) => {
 AppCheckbox.defaultProps = {
   checked: false,
   disabled: false,
-  label: '',
+  label: "",
   textstyle: {},
   adjustsFontSizeToFit: undefined,
-  ellipsizeMode: 'head',
+  ellipsizeMode: "head",
   onLayout: () => {},
   onLongPress: () => {},
   onPressIn: () => {},
@@ -121,38 +124,38 @@ AppCheckbox.defaultProps = {
   id: undefined,
   allowFontScaling: true,
   numberOfLines: undefined,
-  selectionColor: '#000000',
+  selectionColor: "#000000",
   parentcontainerstyle: {},
 };
 
 const styles = StyleSheet.create({
   unselectedImage: {
-    height: deviceBasedDynamicDimension({originalDimen: 15}),
-    width: deviceBasedDynamicDimension({originalDimen: 15}),
+    height: deviceBasedDynamicDimension({ originalDimen: 15 }),
+    width: deviceBasedDynamicDimension({ originalDimen: 15 }),
     tintColor: color_white,
-    marginRight: deviceBasedDynamicDimension({originalDimen: 10}),
+    marginRight: deviceBasedDynamicDimension({ originalDimen: 10 }),
   },
   selectedImage: {
-    height: deviceBasedDynamicDimension({originalDimen: 15}),
-    width: deviceBasedDynamicDimension({originalDimen: 15}),
+    height: deviceBasedDynamicDimension({ originalDimen: 15 }),
+    width: deviceBasedDynamicDimension({ originalDimen: 15 }),
     // tintColor: login_field_text_hint_color,
-    marginRight: deviceBasedDynamicDimension({originalDimen: 10}),
+    marginRight: deviceBasedDynamicDimension({ originalDimen: 10 }),
   },
   fontstyle: {
-    color: 'black',
-    fontSize: deviceBasedDynamicDimension({originalDimen: 12}),
-    fontFamily: font_HKGrotesk_Regular,
+    color: "black",
+    fontSize: deviceBasedDynamicDimension({ originalDimen: 12 }),
+
     padding: 0,
     margin: 0,
 
     paddingHorizontal: 0,
     paddingVertical: 0,
 
-    justifyContent: 'center',
-    textAlignVertical: 'center',
+    justifyContent: "center",
+    textAlignVertical: "center",
 
-    height: deviceBasedDynamicDimension({originalDimen: 18}),
-    lineHeight: deviceBasedDynamicDimension({originalDimen: 18}),
-    textAlign: 'center',
+    height: deviceBasedDynamicDimension({ originalDimen: 18 }),
+    lineHeight: deviceBasedDynamicDimension({ originalDimen: 18 }),
+    textAlign: "center",
   },
 });

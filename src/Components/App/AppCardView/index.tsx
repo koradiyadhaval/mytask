@@ -23,9 +23,7 @@ export const AppCardView = (props: CompProps) => {
   );
 };
 
-AppCardView.defaultProps = {
-  style: null,
-};
+
 
 const styles = StyleSheet.create({
   CardTemplate: {

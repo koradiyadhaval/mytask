@@ -23,4 +23,4 @@ export const AppSafeAreaView = (props: CompProps) => {
   );
 };
 
-AppSafeAreaView.defaultProps = {};
+// AppSafeAreaView.defaultProps = {};

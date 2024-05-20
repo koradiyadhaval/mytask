@@ -1,10 +1,11 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import json from '../Util/Language/Eng/index.json';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import json from "../Util/Language/Eng/index.json";
 // In App.js in a new project
 
-import * as React from 'react';
-import {Home} from '../Screens/Home';
+import * as React from "react";
+import { Login } from "../Screens/Login";
+import { Screen_Login } from "./RouterConstant";
 
 /**
  *
@@ -14,11 +15,11 @@ export const AppRouter = () => {
   const Stack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Home'}>
+      <Stack.Navigator initialRouteName={Screen_Login}>
         <Stack.Screen
-          options={{headerTitle: json.title}}
-          name="Home"
-          component={Home}
+          options={{ headerTitle: json.title }}
+          name={Screen_Login}
+          component={Login}
         />
       </Stack.Navigator>
     </NavigationContainer>

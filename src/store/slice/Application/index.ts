@@ -8,9 +8,10 @@ import {InterfaceHome} from '../../../Interface/Response/Home/InterfaceHome';
 const initialState: HomescreenState = {
   UserLogin:false,
   UserName:'',
+  Loader:false
 };
 export const HomeScreenSlice = createSlice({
-  name: 'ApplicationSlice',
+  name: 'Application',
   initialState,
   reducers: {
     serUserLogin: (state, action: PayloadAction<boolean>) => {

@@ -2,14 +2,7 @@ import React, { useCallback, useEffect } from "react";
 // import {View} from 'react-native';
 import { AppView } from "../../Components/App/AppView";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import {
-  setData,
-  setLoader,
-  setLoadingMore,
-  setMergeData,
-  setNextDataFound,
-  setPagenumber,
-} from "../../store/slice/Application";
+import {} from "../../store/slice/Application";
 import { InterfaceHome } from "../../Interface/Response/Home/InterfaceHome";
 import { FlatList } from "react-native";
 import { HomeCellView } from "../../Components/Custom/CellView/HomeCellview";
@@ -47,10 +40,10 @@ const renderItemView = ({
 export const Login = () => {
   const Styles = GetStyles();
 
-  const dispatch = useAppDispatch();
-  const Data = useAppSelector((state) => state.Home.Data);
-  const isLoadingMore = useAppSelector((state) => state.Home.isLoadingMore);
-  const isNextDataFound = useAppSelector((state) => state.Home.isNextDataFound);
+  // const dispatch = useAppDispatch();
+  // const Data = useAppSelector((state) => state.Home.Data);
+  // const isLoadingMore = useAppSelector((state) => state.Home.isLoadingMore);
+  // const isNextDataFound = useAppSelector((state) => state.Home.isNextDataFound);
 
   return (
     <AppSafeAreaView style={Styles.MainView}>

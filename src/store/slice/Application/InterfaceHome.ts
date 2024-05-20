@@ -4,4 +4,5 @@ export interface HomescreenState {
  
   UserLogin: boolean;
   UserName: string;
+  Loader:boolean;
 }

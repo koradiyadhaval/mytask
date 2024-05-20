@@ -1,11 +1,11 @@
-import {useEffect} from 'react';
+import { useEffect } from "react";
 // import {AppView} from '../App/AppView';
-import {AppRouter} from '../../Router';
-import {useAppSelector} from '../../store/hooks';
-import Loader from '../App/Loader';
+import { AppRouter } from "../../Router";
+import { useAppSelector } from "../../store/hooks";
+import Loader from "../App/Loader";
 
 export const ApplicationWrapper = () => {
-  const VisibleLoader = useAppSelector(state => state.Home.Loader);
+  const VisibleLoader = useAppSelector((state) => state.Application.Loader);
   useEffect(() => {
     //
     /**

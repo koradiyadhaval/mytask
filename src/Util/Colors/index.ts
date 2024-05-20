@@ -1,0 +1,11 @@
+// export const color_header_title="#000000"
+export const color_header_title = 'rgb(0,255,0)';
+export const color_white = '#FFFFFF';
+export const color_black = '#000000';
+export const login_field_text_hint_color = '#0C8180';
+export const color_blue_gray = '#98AFC7';
+export const color_blue = '#0000FF';
+export const color_yellow = '#FFBF00';
+export const color_gray = '#999999';
+export const color_silver = '#C0C0C0';
+export const light_rose_green = '#DBF9DB';

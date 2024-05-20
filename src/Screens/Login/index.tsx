@@ -9,7 +9,7 @@ import {
   setMergeData,
   setNextDataFound,
   setPagenumber,
-} from "../../store/slice/Home";
+} from "../../store/slice/Application";
 import { InterfaceHome } from "../../Interface/Response/Home/InterfaceHome";
 import { FlatList } from "react-native";
 import { HomeCellView } from "../../Components/Custom/CellView/HomeCellview";

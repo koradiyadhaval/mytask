@@ -22,7 +22,7 @@ interface CompProps {
   onLongPress?: (event: GestureResponderEvent) => void;
   onPressIn?: (event: GestureResponderEvent) => void;
   lineBreakMode?: "head" | "middle" | "tail" | "clip" | undefined;
-  id: string | undefined;
+  id?: string | undefined;
   allowFontScaling?: boolean;
   numberOfLines?: number | undefined;
   selectionColor?: string | undefined;

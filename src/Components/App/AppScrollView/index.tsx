@@ -3,7 +3,7 @@ import { ScrollView, ViewStyle, StyleProp } from "react-native";
 
 interface CompProps {
   // children: any
-  children: React.JSX.Element;
+  children?: React.JSX.Element;
   contentInsetAdjustmentBehavior?:
     | "automatic"
     | "scrollableAxes"
@@ -11,6 +11,7 @@ interface CompProps {
     | "always"
     | undefined;
   style?: StyleProp<ViewStyle>;
+  contentContainerStyle?: StyleProp<ViewStyle>;
   showsHorizontalScrollIndicator?: boolean;
   showsVerticalScrollIndicator?: boolean;
 }
@@ -19,6 +20,7 @@ interface CompProps {
 export const AppScrollView = (props: CompProps) => {
   return (
     <ScrollView
+      contentContainerStyle={props?.contentContainerStyle}
       showsVerticalScrollIndicator={props?.showsVerticalScrollIndicator}
       showsHorizontalScrollIndicator={props?.showsHorizontalScrollIndicator}
       style={props?.style}
@@ -29,11 +31,11 @@ export const AppScrollView = (props: CompProps) => {
   );
 };
 
-AppScrollView.defaultProps = {
-  children: null,
-  showsHorizontalScrollIndicator: false,
-  showsVerticalScrollIndicator: false,
-  contentInsetAdjustmentBehavior: "automatic",
-};
+// AppScrollView.defaultProps = {
+//   children: null,
+//   showsHorizontalScrollIndicator: false,
+//   showsVerticalScrollIndicator: false,
+//   contentInsetAdjustmentBehavior: "automatic",
+// };
 
 // export default index;

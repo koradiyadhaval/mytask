@@ -16,7 +16,7 @@ import {
 } from "react-native";
 
 interface CompProps {
-  children: React.JSX.Element | string;
+  children?: React.JSX.Element | string;
   contentInsetAdjustmentBehavior?: string;
   style?: any;
   ref?: any;
@@ -31,7 +31,7 @@ interface CompProps {
   onLongPress?: (event: GestureResponderEvent) => void;
   onPressIn?: (event: GestureResponderEvent) => void;
   lineBreakMode?: "head" | "middle" | "tail" | "clip" | undefined;
-  id: string | undefined;
+  id?: string | undefined;
   allowFontScaling?: boolean;
   numberOfLines?: number | undefined;
   selectionColor?: string | undefined;
@@ -114,6 +114,9 @@ interface CompProps {
   onChange?:
     | ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void)
     | undefined;
+  onBlur?:
+    | ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void)
+    | undefined;
   multiline?: boolean | undefined;
   editable?: boolean | undefined;
 }
@@ -121,6 +124,7 @@ interface CompProps {
 export const EditText = (props: CompProps) => {
   return (
     <TextInput
+      onBlur={props?.onBlur}
       editable={props?.editable}
       multiline={props?.multiline}
       onChange={props?.onChange}
@@ -174,18 +178,18 @@ export const EditText = (props: CompProps) => {
   );
 };
 
-EditText.defaultProps = {
-  children: "",
-  style: {},
-  ellipsizeMode: "head",
-  onLayout: () => {},
-  onLongPress: () => {},
-  onPressIn: () => {},
-  lineBreakMode: undefined,
-  id: undefined,
-  allowFontScaling: true,
-  numberOfLines: undefined,
-  selectionColor: "#000000",
-  cursorColor: "#000000",
-  disableFullscreenUI: false,
-};
+// EditText.defaultProps = {
+//   children: "",
+//   style: {},
+//   ellipsizeMode: "head",
+//   onLayout: () => {},
+//   onLongPress: () => {},
+//   onPressIn: () => {},
+//   lineBreakMode: undefined,
+//   id: undefined,
+//   allowFontScaling: true,
+//   numberOfLines: undefined,
+//   selectionColor: "#000000",
+//   cursorColor: "#000000",
+//   disableFullscreenUI: false,
+// };

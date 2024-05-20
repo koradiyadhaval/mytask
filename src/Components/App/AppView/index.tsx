@@ -3,7 +3,7 @@ import { View } from "react-native";
 
 interface CompProps {
   // children: any
-  children?: React.JSX.Element;
+  children?: React.JSX.Element | React.ReactNode;
   contentInsetAdjustmentBehavior?: string;
   style?: any;
   ref?: any;

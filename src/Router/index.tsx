@@ -17,7 +17,11 @@ export const AppRouter = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName={Screen_Login}>
         <Stack.Screen
-          options={{ headerTitle: json.title }}
+          options={{
+            headerTitle: json.title,
+            fullScreenGestureEnabled: true,
+            headerShown: false,
+          }}
           name={Screen_Login}
           component={Login}
         />

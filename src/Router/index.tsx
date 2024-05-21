@@ -7,7 +7,7 @@ import * as React from "react";
 import { Login } from "../Screens/Login";
 import { Home } from "../Screens/Home";
 import { Screen_Home, Screen_Login, Screen_MapScreen } from "./RouterConstant";
-import { Map } from "../Screens/Map";
+import Map from "../Screens/Map";
 
 /**
  *

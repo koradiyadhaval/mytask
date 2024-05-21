@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import { AppView } from "../../Components/App/AppView";
 import { serUserEmail, serUserLogin } from "../../store/slice/Application";
 import { GetStyles } from "./style";
@@ -11,7 +11,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Screen_MapScreen } from "../../Router/RouterConstant";
 import { CommonActions } from "@react-navigation/native";
 import { color_blue } from "../../Util/Colors";
-import { Alert } from "react-native";
+import { Alert, StyleSheet } from "react-native";
 import { useAppDispatch } from "../../store/hooks";
 
 export const Home = () => {

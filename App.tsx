@@ -4,6 +4,7 @@
  *
  * @format
  */
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as React from "react";
 import { Provider } from "react-redux";
 import { ApplicationWrapper } from "./src/Components/ApplicationWrapper";
@@ -13,11 +14,13 @@ import { persistor } from "./src/store";
 
 function App(): React.JSX.Element {
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor} loading={null}>
-        <ApplicationWrapper />
-      </PersistGate>
-    </Provider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Provider store={store}>
+        <PersistGate persistor={persistor} loading={null}>
+          <ApplicationWrapper />
+        </PersistGate>
+      </Provider>
+    </GestureHandlerRootView>
   );
 }
 

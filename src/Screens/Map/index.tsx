@@ -21,6 +21,7 @@ import { AppSafeAreaView } from "../../Components/App/AppSafeAreaView";
 // import { AppScrollView } from "../../Components/App/AppScrollView";
 import MapView, { LatLng, Marker } from "react-native-maps";
 import { InterfaceMapMarker } from "../../Interface/Response/Home/InterfaceMapMarker";
+import { MapBottomsheetView } from "../../Components/Custom/MapBottomsheetView";
 
 const Map = () => {
   const Styles = GetStyles();
@@ -33,7 +34,9 @@ const Map = () => {
     console.log("handleSheetChanges", index);
   }, []);
 
-  const [visiblesheet, setvisiblesheet] = useState<boolean>(false);
+  const [visiblesheet, setvisiblesheet] = useState<InterfaceMapMarker | null>(
+    null
+  );
 
   const InitalCallback = useCallback(() => {
     const BeanArray: InterfaceMapMarker[] = [];
@@ -90,24 +93,28 @@ const Map = () => {
           onPress={() => {
             if (visiblesheet) {
               bottomSheetRef?.current?.forceClose();
-              setvisiblesheet(false);
+              setvisiblesheet(null);
             }
           }}
           provider={"google"}
           showsUserLocation={LocationPermission == true ? true : false}
           showsMyLocationButton={LocationPermission == true ? true : false}
           style={{ flex: 1 }}
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
+          initialRegion={
+            MarketData?.length > 0
+              ? {
+                  latitude: MarketData[0]?.lat,
+                  longitude: MarketData[0]?.long,
+                  latitudeDelta: 0.0922,
+                  longitudeDelta: 0.0421,
+                }
+              : undefined
+          }
         >
           {MarketData?.map((marker, index) => (
             <Marker
               onPress={() => {
-                setvisiblesheet(true);
+                setvisiblesheet(marker);
                 bottomSheetRef?.current?.expand();
               }}
               key={index}
@@ -121,14 +128,20 @@ const Map = () => {
           ))}
         </MapView>
 
-        {visiblesheet && (
+        {visiblesheet != null && (
           <BottomSheet
             snapPoints={snapPoints}
             ref={bottomSheetRef}
             onChange={handleSheetChanges}
           >
             <BottomSheetView style={styles.contentContainer}>
-              <Text>Awesome </Text>
+              <MapBottomsheetView
+                onClose={() => {
+                  bottomSheetRef?.current?.close();
+                  setvisiblesheet(null);
+                }}
+                Data={visiblesheet}
+              ></MapBottomsheetView>
             </BottomSheetView>
           </BottomSheet>
         )}

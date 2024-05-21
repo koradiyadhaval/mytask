@@ -1,11 +1,8 @@
 import React, { useCallback, useEffect, useLayoutEffect } from "react";
-// import {View} from 'react-native';
 import { AppView } from "../../Components/App/AppView";
 import { serUserEmail, serUserLogin } from "../../store/slice/Application";
-
 import { GetStyles } from "./style";
 import Icon from "react-native-vector-icons/Ionicons";
-// import Icon from "react-native-vector-icons/Ionicons";
 import { AppSafeAreaView } from "../../Components/App/AppSafeAreaView";
 import json from "../../Util/Language/Eng/index.json";
 import { AppTochableOpacity } from "../../Components/App/AppTochableOpacity";
@@ -34,12 +31,12 @@ export const Home = () => {
               json.label_logout_confirmation,
               [
                 {
-                  text: "Cancel",
+                  text: json.label_close,
                   onPress: () => console.log("Cancel Pressed"),
                   style: "cancel",
                 },
                 {
-                  text: "OK",
+                  text: json.label_logout,
                   onPress: () => {
                     console.log("OK Pressed");
                     dispatch(serUserEmail(""));

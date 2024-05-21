@@ -8,11 +8,12 @@ import json from "../../Util/Language/Eng/index.json";
 import { AppTochableOpacity } from "../../Components/App/AppTochableOpacity";
 import { TextView } from "../../Components/App/TextView";
 import { useNavigation } from "@react-navigation/native";
-import { Screen_MapScreen } from "../../Router/RouterConstant";
+import { Screen_MapScreen, Screen_Movies } from "../../Router/RouterConstant";
 import { CommonActions } from "@react-navigation/native";
 import { color_blue } from "../../Util/Colors";
 import { Alert, StyleSheet } from "react-native";
 import { useAppDispatch } from "../../store/hooks";
+import { setData } from "../../store/slice/Movie";
 
 export const Home = () => {
   const navigation = useNavigation();
@@ -41,6 +42,7 @@ export const Home = () => {
                     console.log("OK Pressed");
                     dispatch(serUserEmail(""));
                     dispatch(serUserLogin(false));
+                    dispatch(setData([]));
                   },
                 },
               ],
@@ -81,7 +83,7 @@ export const Home = () => {
             // navigation.navigate(Screen_MapScreen);
             navigation.dispatch(
               CommonActions.navigate({
-                name: Screen_MapScreen,
+                name: Screen_Movies,
               })
             );
           }}

@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { serUserEmail, serUserLogin } from "../../store/slice/Application";
 import json from "../../Util/Language/Eng/index.json";
 import { FlatList, Keyboard } from "react-native";
-import { HomeCellView } from "../../Components/Custom/CellView/HomeCellview";
+import { HomeCellView } from "../../Components/Custom/CellView/MoviesCellview";
 import { GetStyles } from "./style";
 import { FlatlistLoadmoreview } from "../../Components/Custom/FlatlistLoadmoreview";
 import { AppSafeAreaView } from "../../Components/App/AppSafeAreaView";

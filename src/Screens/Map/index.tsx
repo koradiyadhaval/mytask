@@ -9,7 +9,11 @@ import { request, PERMISSIONS } from "react-native-permissions";
 
 import { AppView } from "../../Components/App/AppView";
 import { View, Text } from "react-native";
-import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
+import BottomSheet, {
+  BottomSheetView,
+  BottomSheetModal,
+  BottomSheetModalProvider,
+} from "@gorhom/bottom-sheet";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {} from "../../store/slice/Application";
 // import { InterfaceHome } from "../../Interface/Response/Home/InterfaceHome";
@@ -129,21 +133,23 @@ const Map = () => {
         </MapView>
 
         {visiblesheet != null && (
-          <BottomSheet
-            snapPoints={snapPoints}
-            ref={bottomSheetRef}
-            onChange={handleSheetChanges}
-          >
-            <BottomSheetView style={styles.contentContainer}>
-              <MapBottomsheetView
-                onClose={() => {
-                  bottomSheetRef?.current?.close();
-                  setvisiblesheet(null);
-                }}
-                Data={visiblesheet}
-              ></MapBottomsheetView>
-            </BottomSheetView>
-          </BottomSheet>
+          <BottomSheetModalProvider>
+            <BottomSheet
+              snapPoints={snapPoints}
+              ref={bottomSheetRef}
+              onChange={handleSheetChanges}
+            >
+              <BottomSheetView style={styles.contentContainer}>
+                <MapBottomsheetView
+                  onClose={() => {
+                    bottomSheetRef?.current?.close();
+                    setvisiblesheet(null);
+                  }}
+                  Data={visiblesheet}
+                ></MapBottomsheetView>
+              </BottomSheetView>
+            </BottomSheet>
+          </BottomSheetModalProvider>
         )}
       </AppView>
     </AppSafeAreaView>

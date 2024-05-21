@@ -8,6 +8,8 @@
     "label_load_Movie":"Load Movies",
     "label_logout_confirmation":"Are you sure you want logout?",
     "label_logout":"Logout",
-    "label_close":"Close"
+    "label_close":"Close",
+    "label_movie_name":"Name : ",
+    "label_movie_rating":"Rating : "
     
 }

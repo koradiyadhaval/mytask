@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 import type {PayloadAction} from '@reduxjs/toolkit';
 // import type {RootState} from '../../../store';
 import {HomescreenState} from './InterfaceHome';
-import {InterfaceHome} from '../../../Interface/Response/Home/InterfaceHome';
+// import {InterfaceHome} from '../../../Interface/Response/Home/InterfaceHome';
 
 // Define the initial state using that type
 const initialState: HomescreenState = {
@@ -18,6 +18,10 @@ export const HomeScreenSlice = createSlice({
       Object.assign({state, Loader: action.payload});
       state.UserLogin = action.payload;
     },
+    setLoader: (state, action: PayloadAction<boolean>) => {
+      Object.assign({state, Loader: action.payload});
+      state.Loader = action.payload;
+    },
     serUserEmail: (state, action: PayloadAction<string>) => {
       Object.assign({state, Loader: action.payload});
       state.UserEmail = action.payload;
@@ -26,6 +30,6 @@ export const HomeScreenSlice = createSlice({
 });
 
 export const {
-  serUserEmail,serUserLogin
+  serUserEmail,serUserLogin,setLoader
 } = HomeScreenSlice.actions;
 export default HomeScreenSlice.reducer;

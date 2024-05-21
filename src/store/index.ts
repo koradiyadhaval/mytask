@@ -5,6 +5,7 @@ import storage from "@react-native-async-storage/async-storage";
 import { combineReducers } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
+import MovieSlice  from "./slice/Movie";
 
 const persistConfig = {
   key: "root",
@@ -17,6 +18,7 @@ const userPersistConfig = {
 
 const rootReducer = combineReducers({
   Application: persistReducer(userPersistConfig, Application),
+  Movie:MovieSlice
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

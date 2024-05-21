@@ -97,6 +97,7 @@ export const Login = () => {
                       ref={RefPassword}
                       onSubmitEditing={() => {
                         Keyboard.dismiss();
+                        handleSubmit();
                       }}
                     />
                     {errors.password && (

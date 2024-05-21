@@ -19,7 +19,9 @@ export const Map = () => {
     <AppSafeAreaView style={Styles.MainSafeAreaview}>
       <AppView style={Styles.MainView}>
         <MapView
-          showsUserLocation
+          provider={"google"}
+          showsUserLocation={true}
+          showsMyLocationButton={true}
           style={{ flex: 1 }}
           initialRegion={{
             latitude: 37.78825,

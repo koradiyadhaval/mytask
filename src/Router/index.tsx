@@ -40,6 +40,7 @@ export const AppHomestack = () => {
           options={{
             fullScreenGestureEnabled: true,
             headerShown: true,
+            // headerRight
           }}
           name={Screen_Home}
           component={Home}

@@ -5,7 +5,8 @@
     "label_validation_password_require":"Password is required",
     "label_validation_password_field_min_length_message":"Password must be at least 8 characters",
     "label_load_map":"Load Map",
-    "label_load_Movie":"Load Movies"
+    "label_load_Movie":"Load Movies",
+    "label_logout_confirmation":"Are you sure you want logout?"
     
 
 
